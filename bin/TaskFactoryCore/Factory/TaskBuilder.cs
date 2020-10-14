@@ -6,7 +6,8 @@ using System.Linq;
 using System.Timers;
 using Factory.Models;
 using FactoryBase;
-
+using DBModules;
+using Factory.DB;
 namespace Factory
 {
     public class TaskBuilder
@@ -16,12 +17,17 @@ namespace Factory
         private static System.Timers.Timer timer_long = null;
         List<Interval> intervals = new List<Interval>();
         Dictionary<string, IFactory> factories = new Dictionary<string, IFactory>();
+        DBInstance dBManager = null;
         public TaskBuilder()
         {
             init();
         }
         public void init()
         {
+            DBConfig.DBConn = "Server=localhost;Port=5432;Database=DVD;User id=postgres;Password=Starfish123";
+            DBConfig.Provider = "Npgsql";
+            dBManager = DBInstance.init();
+            dBManager.getallActors();
             createTimers();
         }
 

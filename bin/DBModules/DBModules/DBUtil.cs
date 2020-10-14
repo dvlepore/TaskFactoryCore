@@ -10,13 +10,14 @@ namespace DBModules
     {
         private  string dbconnectionstr = string.Empty;
         private  DbProviderFactory dbProviderFactories;
-
-        public DBUtil()
+        private enum dbType { Npgsql, MySql, Mssql};
+        private DBUtil()
         {
 
         }
         public DBUtil(string dbconnection, string dbType)
         {
+            System.Data.Common.DbProviderFactories.RegisterFactory(DBConfig.Provider, typeof(Npgsql.NpgsqlFactory).AssemblyQualifiedName);
             dbProviderFactories = DbProviderFactories.GetFactory(dbType);
             this.dbconnectionstr = dbconnection;
         }
@@ -72,6 +73,10 @@ namespace DBModules
                 using(var conn = this.GetDbConnection(dbconnectionstr))
                 {
                     command.Connection = conn;
+                    if (command.Connection.State != ConnectionState.Open)
+                    {
+                        command.Connection.Open();
+                    }
                     using (var adapat = this.GetDataAdapter())
                     {
                         adapat.SelectCommand = command;
@@ -87,6 +92,32 @@ namespace DBModules
             {
                 return null;
             }
+        }
+
+        public void executenonquery(string query)
+        {
+            try
+            {
+                var command = this.createDBCommand(query);
+                using (var conn = this.GetDbConnection(dbconnectionstr))
+                {
+                    command.Connection = conn;
+                    if (command.Connection.State != ConnectionState.Open)
+                    {
+                        command.Connection.Open();
+                    }
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public static T getFValue<T>(string name, DataRow row)
+        {
+            return row[name] is DBNull ? default(T) : (T)row[name];
         }
 
     }

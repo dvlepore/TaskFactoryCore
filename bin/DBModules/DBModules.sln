@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModules", "DBModules\DBModules.csproj", "{24965985-3E9B-49F0-AA36-9D6034345CA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBModules", "DBModules\DBModules.csproj", "{24965985-3E9B-49F0-AA36-9D6034345CA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{24965985-3E9B-49F0-AA36-9D6034345CA0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24965985-3E9B-49F0-AA36-9D6034345CA0}.Release|x64.ActiveCfg = Release|x64
 		{24965985-3E9B-49F0-AA36-9D6034345CA0}.Release|x64.Build.0 = Release|x64
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{A1EE6B30-1C7E-4AF5-9C46-3DEDBFC4F2F7}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

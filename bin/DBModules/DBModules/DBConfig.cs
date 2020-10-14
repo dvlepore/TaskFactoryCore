@@ -7,8 +7,8 @@ namespace DBModules
 {
     public class DBConfig
     {
-        public string dbconnectionstr { get; set; }
+        public static string DBConn { get; set; }
 
-        public string token { get; set; }
+        public static string Provider { get; set; }
     }
 }
